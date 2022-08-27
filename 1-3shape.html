@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload = "pageLoaded()">
+    <canvas width = "640" height = "480" id = "testcanvas" style = "border: black 1px solid;">
+        Your browser dose not support HTML5 Canvas. Please shift to another browser.
+    </canvas>
+    <script>
+        function pageLoaded(){
+            var canvas = document.getElementById('testcanvas');
+            var context = canvas.getContext('2d');
+            //绘制图形相关API以及画法
+            /*
+            beginPath() 开始绘制一个新路径；
+            closePath() 通过绘制一条当前点到路径起点的线段来闭合形状；
+            fill(), stroke() 填充形状或绘制空心形状；
+            moveTo(x, y) 将当前点移动到点(x, y);
+            lineTo(x, y) 从当前点绘制一条直线段到点(x, y);
+            arc(x, y, radius, startAngle, endAngle, anticlockwise) 绘制一条指定半径的弧到点(x, y)。
+            */
+
+            /*
+            绘图步骤：
+            1. 使用beginPath()开始绘制路径；
+            2. 使用moveTo()、lineTo()、arc()创建线段；
+            3. 使用closePath()结束绘制并闭合形状（可选）；
+            4. 使用stroke()或fill()绘制路径的外边框或填充形状，其中fill()会自动闭合所偶未闭合的路径。
+            */
+
+            //实心三角形
+            context.beginPath();
+            context.moveTo(10, 120);
+            context.lineTo(10, 180);
+            context.lineTo(110, 150);
+            context.fill();
+
+            //空心三角形
+            context.beginPath();
+            context.moveTo(140, 60);
+            context.lineTo(140, 220);
+            context.lineTo(40, 190);
+            context.closePath();
+            context.stroke();
+
+            //更复杂的多边形
+            context.beginPath();
+            context.moveTo(160, 160);
+            context.lineTo(170, 220);
+            context.lineTo(240, 210);
+            context.lineTo(260, 170);
+            context.lineTo(190, 140);
+            context.closePath();
+            context.stroke();
+
+            //绘制半圆弧
+            context.beginPath();
+            context.arc(100, 300, 40, 0, Math.PI, true);
+            context.stroke();
+
+            //画一个实心圆
+            context.beginPath();
+            context.arc(100, 300, 30, 0, 2*Math.PI, true);
+            context.fill();
+
+            //画一个另类弧
+            context.beginPath();
+            context.arc(200, 300, 25, 0, 3/2*Math.PI, false);
+            context.stroke();
+        }
+    </script>
+</body>
+</html>
