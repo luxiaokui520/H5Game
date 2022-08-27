@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text</title>
+</head>
+<body onload="pageLoaded()">
+    <canvas width = "640" height = "480" id = "testcanvas" style = "border: black 1px solid;">
+        Your browser dose not support HTML5 Canvas. Please shift to another browser.
+    </canvas>
+    <script>
+        function pageLoaded(){
+            const canvas = document.getElementById('testcanvas');
+            const context = canvas.getContext('2d');
+
+            /*
+            strokeText(text, x, y) 在(x, y)处绘制空心文本；
+            fillText(text, x, y) 在(x, y)处绘制实心文本。
+            注意：canvas中的文本没有wrapping, margin, padding等css布局，但是有front属性
+            */
+
+            //绘制文本
+            context.fillText('This is some text...', 330, 40);
+
+            //修改字体
+            context.font = '10 pt Arial';
+            context.fillText('This is in 10 pt Arial...', 330, 60);
+
+            //绘制空心文本
+            context.font = '16 pt Arial';
+            context.strokeText('This is stroked in 16 pt Arial...', 330, 80);
+        }
+    </script>
+</body>
+</html>
