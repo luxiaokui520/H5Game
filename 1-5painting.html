@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painting</title>
+</head>
+<body onload="pageLoaded()">
+    <canvas width = "640" height = "480" id = "testcanvas" style = "border: black 1px solid;">
+        Your browser dose not support HTML5 Canvas. Please shift to another browser.
+    </canvas>
+    <script>
+        function pageLoaded(){
+            const canvas = document.getElementById('testcanvas');
+            const context = canvas.getContext('2d');
+
+            /*
+            fillStyle 设置接下来的fill操作的默认颜色；
+            strokeStyle 设置接下来的stroke的默认颜色；
+            */
+
+            //画一个红色的实心矩形
+            context.fillStyle = 'red';
+            context.fillRect(310, 160, 100, 50);
+
+            context.fillStyle = 'rgb(255, 0, 0)';
+            context.fillRect(420, 160, 100, 50);
+
+            //画一个绿色的空心矩形
+            context.strokeStyle = 'green';
+            context.strokeRect(310, 240, 100, 50);
+
+            //画一个透明度为0.6的绿色实心矩形
+            context.fillStyle = 'rgba(0, 255, 0, 0.6)';
+            context.fillRect(450, 180, 100, 50)
+        }
+    </script>
+</body>
+</html>
