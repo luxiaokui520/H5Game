@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload = "pageLoaded()">
+    <canvas width = "640" height = "480" id = "testcanvas" style = "border: black 1px solid;">
+        Your browser dose not support HTML5 Canvas. Please shift to another browser.
+    </canvas>
+    <img src="1.png" alt="" id="spaceship">
+    <script>
+        function pageLoaded(){
+            const image = document.getElementById('spaceship');
+            const canvas = document.getElementById('testcanvas');
+            const context = canvas.getContext('2d');
+
+            //参数
+            /*
+            translate(x, y) 将坐标系的远点平移到另一个点(x, y);
+            rotate(angle) 以当前远点为中心顺时针旋转angle角度的坐标系；
+            scale(s, y) 以x和y为因子缩放坐标系
+            */
+
+            // 绘制旋转物体步骤
+            /*
+            将canvas原点平移到物体处
+            以指定角度旋转canvas
+            绘制物体
+            将canvas复原至初始状态
+            */
+
+            context.translate(250, 370);
+            context.rotate(Math.PI/3);
+            context.drawImage(image,0,0, 60, 50, -30, -25, 60, 50);
+            context.rotate(-Math.PI/3);
+            context.translate(-240, -370);
+
+            context.translate(300, 370);
+            context.rotate(3* Math.PI/4);
+            context.drawImage(image, 0, 0, 60, 50, -30, -25, 60, 50);
+            context.rotate(-3*Math.PI/4);
+            context.translate(-300, -370);
+        }
+    </script>
+</body>
+</html>

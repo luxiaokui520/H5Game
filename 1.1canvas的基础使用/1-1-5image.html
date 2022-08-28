@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload = "pageLoaded()">
+    <canvas width = "640" height = "480" id = "testcanvas" style = "border: black 1px solid;">
+        Your browser dose not support HTML5 Canvas. Please shift to another browser.
+    </canvas>
+    <img src="1.png" alt="" id="spaceship">
+    <script>
+        function pageLoaded(){
+            const image = document.getElementById('spaceship');
+            const canvas = document.getElementById('testcanvas');
+            const context = canvas.getContext('2d');
+
+            //drawImage()方法
+            //drawImage(image, sourceX, sourceY, sourceWidth, sourceHeight, x, y, width, height);
+            //从图片中切割一个矩形区域source，缩放到指定的宽度和高度，并在canvas中的(x, y)处会绘制出来；
+            //其中一定会有的参数是image，x，y
+
+            context.drawImage(image, 0, 350);
+            context.drawImage(image, 0, 0, 100, 25);
+            context.drawImage(image, 0, 0, 60, 50, 0,250, 60, 50);
+        }
+    </script>
+</body>
+</html>
